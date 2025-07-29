@@ -1,4 +1,9 @@
-export const NavbarLinks = [
+export interface INavbarLink{
+	name: string
+	link: string
+}
+
+export const NavbarLinks:INavbarLink[] = [
 	{
 		name: "Главная",
 		link: "#main"
@@ -21,7 +26,12 @@ export const NavbarLinks = [
 	},
 ]
 
-export const SocialLinks = [
+export interface ISocialLink{
+	name: string
+	icon: string
+	link: string
+}
+export const SocialLinks:ISocialLink[] = [
 	{
 		name: "VK",
 		icon: "/assets/logo/vkontakte.png",
