@@ -34,17 +34,22 @@ export interface ISocialLink{
 export const SocialLinks:ISocialLink[] = [
 	{
 		name: "VK",
-		icon: "/assets/logo/vkontakte.png",
+		icon: "/business-import/assets/logo/vkontakte.png",
 		link: "https://vk.com/id101595763"
 	},
 	{
 		name: "Telegram",
-		icon: "/assets/logo/telegram.png",
+		icon: "/business-import/assets/logo/telegram.png",
 		link: "https://t.me/template123"
 	},
 	{
 		name: "Mail",
-		icon: "/assets/logo/mailru.png",
+		icon: "/business-import/assets/logo/mailru.png",
 		link: "mailto:politkovskiyd@mail.ru"
+	},
+	{
+		name: "Phone",
+		icon: "/business-import/assets/logo/phone.png",
+		link: "tel:+70000000000"
 	}
 ]

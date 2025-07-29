@@ -48,7 +48,7 @@ export default function AboutPreview() {
 						<div className='flex flex-col md:flex-row gap-5 py-5 px-5 md:items-center justify-between md:w-full'>
 							<div className='flex flex-row py-2 px-5 bg-blue-700/80 rounded-lg'>
 								<Image
-									src="/assets/icon/calendar.png"
+									src="/business-import/assets/icon/calendar.png"
 									alt="calendar"
 									width={50}
 									height={50}
@@ -61,7 +61,7 @@ export default function AboutPreview() {
 							</div>
 							<div className='flex flex-row py-2 px-5 bg-blue-700/80 rounded-lg items-center'>
 								<Image
-									src="/assets/icon/order.png"
+									src="/business-import/assets/icon/order.png"
 									alt="order"
 									width={50}
 									height={50}
