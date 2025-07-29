@@ -3,7 +3,7 @@ import Glass from '../UI/Container/Glass'
 
 export default function MainPreview() {
 	return <div id="main" className="w-full min-h-screen relative">				
-		<div className="absolute top-0 left-0 bottom-0 right-0 bg-cover bg-[url(/assets/main-2.png)]"></div>
+		<div className="absolute top-0 left-0 bottom-0 right-0 bg-cover bg-[url(/business-import/assets/main-2.png)]"></div>
 		<div className="absolute left-0 bottom-0 right-0 bg-blue-700/90 p-10"></div>
 		<div className="w-full h-screen md:px-35 py-35 flex items-center z-[20]">
 			<div className="flex flex-col w-full text-white">
