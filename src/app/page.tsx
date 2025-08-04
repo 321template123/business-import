@@ -166,7 +166,7 @@ export default function Home() {
 								width={50}
 								height={50}
 							/>
-							<span className='text-blue-600 md:text-3xl fond-bold'>{item.short}</span>
+							<span className='text-blue-600 md:text-3xl font-bold'>{item.short}</span>
 						</Link>)}
 					</div>
         </section>
@@ -276,20 +276,21 @@ const HeroSection = () => {
       {/* Контент поверх карусели */}
 			<div className="z-10 text-center md:text-end text-white self-end my-10 mx-2 md:max-w-[800px] md:mx-20">
 				<h1 className="text-4xl md:text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
-					Импорт без границ: <br /> ваш бизнес — наши возможности.
+					Международная торговля<br /> <span className='font-bold text-blue-500'>Инновационно</span> и <span className='font-bold text-blue-500'>Профессионально.</span>
 				</h1>
 				<p className="mt-4 text-xl md:text-2xl text-gray-300 drop-shadow-md">
-					Надёжный партнёр для вашего бизнеса в сфере импорта. Эффективно, выгодно, без лишних хлопот.
+					<span className='font-bold'>Бизнес-Import</span> - надежный партнёр с многолетним опытом работы в сфере международной торговли. Наша компания - верный выбор для поиска и импорта товаров из любой точки мира.
 				</p>
 			</div>
 
-			 <div className="z-10 text-center md:text-start text-white self-start my-10 mx-2  md:mx-20 md:max-w-[600px]">
+			 <div className="z-10 text-center md:text-start text-white self-start my-10 mx-2  md:mx-20 w-full md:max-w-[600px]">
 				<h3 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-md">
-					Импортируем успех
+					ИИ-консультант для поиска товара
 				</h3>
-				<p className="text-lg text-gray-300 drop-shadow-md">
-					Более 6 лет на рынке, более 1200 успешно выполненных заявок в год. Мы не просто импортируем товары, мы строим надёжные и долгосрочные партнёрские отношения.
-				</p>
+				<ul className='text-xl'>
+					<li><span className='font-extrabold'> - </span> Доступен в любое время</li>
+					<li><span className='font-extrabold'> - </span> Моментальный расчёт предварительной цены</li>
+				</ul>
 			</div>
     </section>
   );
