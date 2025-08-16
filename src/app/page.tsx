@@ -75,7 +75,7 @@ export default function Home() {
 				<HeroSection />
 
         {/* Блок "О нас" */}
-        <section id="about" className="relative py-20 bg-white">
+        <section id="about" className="relative py-20 bg-white min-h-screen flex items-center">
           <div className="absolute inset-0 md:m-20">
             <Image
               src="/business-import/assets/about/about-1.png"
@@ -115,12 +115,12 @@ export default function Home() {
 				<ArticleCarousel />
 
         {/* Блок "Отзывы" */}
-        <ReviewsSection />
+        <ReviewCarousel />
 
         {/* Формочка для связи */}
-        <section id="contact-form" className="container mx-auto p-8 py-20 bg-gray-100">
+        <section id="contact-form" className="container mx-auto p-8 py-20 bg-gray-100 min-h-screen flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Оставить заявку</h2>
-          <form className="max-w-lg mx-auto bg-white p-10 rounded-xl shadow-2xl space-y-6">
+          <form className="max-w-lg mx-auto bg-white p-10 rounded-xl shadow-2xl space-y-6 md:min-w-[600px]">
             <div className="flex items-center space-x-4 border-b border-gray-200 py-2">
               <UserIcon className="h-6 w-6 text-gray-400" />
               <input type="text" id="name" placeholder="Ваше имя" className="flex-1 block w-full outline-none text-gray-700" required />
@@ -204,7 +204,7 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section id="reviews" className="bg-gray-100 py-20">
+    <section id="reviews" className="bg-gray-100 py-20 min-h-screen flex items-center">
       <div className="container mx-auto px-8">
         <h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Отзывы клиентов</h2>
         <div className="relative max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden">
@@ -264,7 +264,7 @@ const HeroSection = () => {
   }, [heroImages.length]);
 
   return (
-    <section id="main" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <section id="main" className="relativeflex flex-col items-center justify-center overflow-hidden min-h-screen flex items-center">
       {/* Карусель на заднем фоне */}
       <div className="absolute inset-0 z-0">
         {heroImages.map((image, index) => (
@@ -310,32 +310,6 @@ const HeroSection = () => {
     </section>
   );
 };
-
-// <section id="main" className="relative text-center min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-indigo-900 to-indigo-800 text-white">
-// 	<div className="absolute inset-0 bg-[url('/bg-pattern.svg')] opacity-10"></div>
-// 	<div className="container mx-auto px-8 relative z-10 flex justify-end items-start h-full">
-// 		
-// 		{/* Дополнительная информация слева снизу */}
-// 		<div className="absolute bottom-16 left-8 text-left max-w-sm">
-// 			<h3 className="text-3xl font-bold text-white mb-4 drop-shadow-md">
-// 				Импортируем успех
-// 			</h3>
-// 			<p className="text-lg text-gray-300">
-// 				Более 6 лет на рынке, более 1200 успешно выполненных заявок в год. Мы не просто импортируем товары, мы строим надёжные и долгосрочные партнёрские отношения.
-// 			</p>
-// 		</div>
-// 		
-// 		{/* Основной заголовок и слоган справа сверху */}
-// 		<div className="absolute top-1/2 md:top-24 right-8 transform -translate-y-1/2 md:-translate-y-0 text-right max-w-2xl">
-// 			<h1 className="text-5xl md:text-6xl font-extrabold leading-tight drop-shadow-lg">
-// 				Импорт без границ: <br /> ваш бизнес — наши возможности.
-// 			</h1>
-// 			<p className="mt-4 text-xl md:text-2xl text-gray-300 drop-shadow-md">
-// 				Надёжный партнёр для вашего бизнеса в сфере импорта. Эффективно, выгодно, без лишних хлопот.
-// 			</p>
-// 		</div>
-// 	</div>
-// </section>
 
 interface IArticle{
 	id: number
@@ -452,7 +426,7 @@ const ArticleCarousel = () => {
 
   return (
     <>
-      <section id="articles" className="py-20 bg-gray-100">
+      <section id="articles" className="py-20 bg-gray-100 min-h-screen flex items-center">
         <div className="container mx-auto px-8">
           <h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Полезные статьи</h2>
           <div className="relative">
@@ -530,6 +504,182 @@ const ArticleCarousel = () => {
           </div>
         </div>
       )}
+    </>
+  );
+};
+
+interface IReview{
+	id: number
+	icon: string
+	name: string
+	post: string
+	content: string
+}
+
+const reviews:IReview[] = [
+	{
+		id:1,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Алексей Чайкин",
+		post:"Начальник отдела снабжения",
+		content:"Работаем с этой компанией уже больше двух лет. Заказывали комплектующие для нашего производства. Особенно ценим надежность и четкое соблюдение сроков. Ни разу не подвели, даже когда требовалась срочная поставка. Менеджеры всегда на связи и готовы помочь с любыми вопросами. Рекомендую как стабильного и ответственного партнера."
+	},
+	{
+		id:2,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Елена Смирнова",
+		post:"Индивидуальный предприниматель",
+		content:"Для нашего интернет-магазина заказывали через них партию трендовых товаров. Боялись сложностей с поиском надежного поставщика в Китае и таможней. Ребята взяли все на себя: нашли фабрику, проверили качество образцов, организовали доставку и полное таможенное оформление. Все прошло гладко и даже быстрее, чем ожидали. Спасибо за профессионализм!"
+	},
+	{
+		id:3,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Дмитрий Тихомиров",
+		post:"Технический директор",
+		content:"Нам было важно найти партнера, который не просто доставит груз, но и поможет с контролем качества на производстве в Китае. Эта компания предоставила такую услугу. Их инспектор провел проверку на фабрике, прислал подробный отчет с фотографиями. В итоге мы получили именно тот товар, который заказывали, без брака. Очень довольны таким комплексным подходом."
+	},
+	{
+		id:4,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Надежда Кузнецова",
+		post: "Руководитель отдела закупок",
+		content: "Обратились в компанию для импорта оборудования. Задача была не самая простая, требовалась тщательная проработка логистики и документации. Команда справилась на отлично! Особенно хочу отметить оперативность в решении возникающих вопросов и прозрачность на всех этапах сделки. Цены на услуги также оказались конкурентными."
+	},
+	{
+		id:5,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Марат Тухбатуллин",
+		post: "Генеральный директор",
+		content: "Как владелец небольшой сети магазинов сувениров, я постоянно ищу интересные новинки. Эта компания помогает мне находить уникальные товары в Китае и организовывать сборные грузы от разных поставщиков, что очень удобно и выгодно при небольших партиях. Всегда четкая коммуникация и своевременная доставка."
+	},
+	{
+		id:6,
+		icon:"/business-import/assets/article/article-1.png",
+		name: "Валерия Новикова",
+		post: "Менеджер по развитию бизнеса",
+		content: `Начинали работать с Китаем впервые и искали компанию, которая проведет "за руку" через весь процесс. Выбрали этих ребят и не пожалели. Нам подробно объяснили все этапы, помогли с переговорами, документами, растаможкой. Чувствовалась реальная поддержка и заинтересованность в успехе нашего проекта. Огромная благодарность всей команде!`
+	}
+];
+
+const ReviewCarousel = () => {
+  const [fullscreenReview, setFullscreenReview] = useState<IReview | undefined>();  
+	const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+	const visibleArticles = reviews.slice(currentIndex, currentIndex + 1);
+
+  const handleNext = () => {
+    if (currentIndex + 1 < reviews.length) {
+      setCurrentIndex(prevIndex => prevIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prevIndex => prevIndex - 1);
+    }
+  };
+
+	useEffect(() => {
+    // Отключаем или включаем прокрутку страницы в зависимости от состояния модального окна
+    if (fullscreenReview) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    // Очистка эффекта при размонтировании компонента
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [fullscreenReview]);
+
+  return (
+    <>
+      <section id="reviews" className="py-20 bg-gray-100 min-h-screen flex items-center">
+        <div className="container mx-auto px-8">
+          <h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Отзывы</h2>
+          <div className="relative">
+            <div className="grid md:grid-cols-1 gap-8 place-items-center">
+              {visibleArticles.map((article) => (
+                <div
+                  key={article.id}
+                  // onClick={() => setFullscreenReview(article)}
+                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden md:max-w-[600px]"
+                >
+                  <div className="relative flex flex-row items-center justify-start px-6 py-5">
+                    <Image
+                      src={article.icon}
+                      alt={article.name}
+                      // layout="fill"
+                      // objectFit="cover"
+											width={75}
+											height={75}
+											className='rounded-full'
+                    />
+										<div className="px-6">
+											<h3 className="text-xl font-bold text-indigo-900 mb-2">{article.name}</h3>
+											<h3 className="text font-bold text-indigo-900 mb-2">{article.post}</h3>
+										</div>
+                  </div>
+									<div className="p-6">
+                    <p className="text-gray-600">{article.content}</p>
+									</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Кнопка "Назад" */}
+            {currentIndex > 0 && (
+              <button
+                onClick={handlePrev}
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 p-3 rounded-full shadow-lg hover:bg-white transition-colors z-20"
+                aria-label="Предыдущие статьи"
+              >
+                <ArrowLeftIcon className="h-6 w-6 text-indigo-900" />
+              </button>
+            )}
+
+            {/* Кнопка "Вперёд" */}
+            {currentIndex + 1 < reviews.length && (
+              <button
+                onClick={handleNext}
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 p-3 rounded-full shadow-lg hover:bg-white transition-colors z-20"
+                aria-label="Следующие статьи"
+              >
+                <ArrowRightIcon className="h-6 w-6 text-indigo-900" />
+              </button>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Полноэкранное отображение статьи */}
+      {/* {fullscreenReview && (
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 md:p-8 z-50">
+          <div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
+            <button
+              onClick={() => setFullscreenReview(undefined)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-2"
+              aria-label="Закрыть"
+            >
+              <XMarkIcon className="h-8 w-8" />
+            </button>
+            <div className="relative w-full h-64 md:h-96">
+              <Image
+                src={fullscreenReview.icon}
+                alt={fullscreenReview.name}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+            <div className="p-6 md:p-8">
+              <h1 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-4">{fullscreenReview.name}</h1>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-4">{fullscreenReview.post}</h1>
+              <div className="prose max-w-none text-lg text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: fullscreenReview.content.replace(/\n/g, '<br />') }} />
+            </div>
+          </div>
+        </div>
+      )} */}
     </>
   );
 };
