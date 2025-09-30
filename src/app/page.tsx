@@ -15,6 +15,7 @@ import { ReviewFull } from './components/ReviewCarousel/ReviewFull';
 import { MainFormFull } from './components/MailFormBlock/MainFormFull';
 import { ContactFull } from './components/ContactBlock/ContactFull';
 import { Header } from './components/Header/Header';
+import { ServicesFull } from './components/ServicesBlock/ServicesFull';
 
 export default function Home() {
 
@@ -23,10 +24,15 @@ export default function Home() {
 		<main className="">
 			{/* Главный блок */}
 			<MainFull />
+			
 			{/* Блок "О нас" */}
 			<AboutFull />
+
 			{/* Блок "Статьи" */}
 			<ArticleFull />
+			
+			{/* Блок "Услуги" */}
+			<ServicesFull />
 			
 			{/* Формочка для связи */}
 			<MainFormFull />
@@ -37,7 +43,7 @@ export default function Home() {
 			&copy; 2025 Бизнес-импорт. Все права защищены.
 		</footer>
 	</div>
-	
+
 	{/* Блок "Отзывы" */}
 	{/* <ReviewFull /> */}
 }

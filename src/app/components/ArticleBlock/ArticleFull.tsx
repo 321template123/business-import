@@ -118,7 +118,7 @@ export const ArticleFull = () => {
   }, [fullscreenArticle]);
 
 	return <>
-		<section id="articles" className="py-20 bg-gray-100 min-h-screen flex items-center">
+		<section id="articles" className="py-20 flex items-center">
 			<div className="container mx-auto px-8">
 				<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Полезные статьи</h2>
 				<div className="relative">
@@ -170,32 +170,6 @@ export const ArticleFull = () => {
 			</div>
 		</section>
 		{fullscreenArticle && <ArticleFullScreenView article={fullscreenArticle} close={() => setFullscreenArticle(undefined)}/>}
-		{/* Полноэкранное отображение статьи */}
-		{fullscreenArticle && (
-			<div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 md:p-8 z-50">
-				<div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
-					<button
-						onClick={() => setFullscreenArticle(undefined)}
-						className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-2"
-						aria-label="Закрыть"
-					>
-						<XMarkIcon className="h-8 w-8" />
-					</button>
-					<div className="relative w-full h-64 md:h-96">
-						<Image
-							src={fullscreenArticle.image}
-							alt={fullscreenArticle.title}
-							layout="fill"
-							objectFit="cover"
-						/>
-					</div>
-					<div className="p-6 md:p-8">
-						<h1 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-4">{fullscreenArticle.title}</h1>
-						<div className="prose max-w-none text-lg text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: fullscreenArticle.content.replace(/\n/g, '<br />') }} />
-					</div>
-				</div>
-			</div>
-		)}
 	</>
 }
 

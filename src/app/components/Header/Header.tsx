@@ -19,7 +19,7 @@ export const Header = () => {
 		</Head>
 
 		<header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
-			<nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+			<nav className="container mx-auto px-4 py-2 flex justify-between items-center">
 				<div className="text-3xl font-extrabold text-indigo-900">
 					<Image
 						src="/business-import/assets/logo/LogoMiddle.png"
@@ -35,9 +35,8 @@ export const Header = () => {
 					<a href="#main" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Главная</a>
 					<a href="#about" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">О нас</a>
 					<a href="#articles" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Полезные статьи</a>
-					<a href="#reviews" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Отзывы</a>
+					<a href="#services" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Услуги</a>
 					<a href="#contact-form" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Связь</a>
-					<a href="#contacts" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Контакты</a>
 				</div>
 
 				{/* Кнопка-гамбургер для мобильных устройств */}
