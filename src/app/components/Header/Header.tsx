@@ -13,7 +13,7 @@ export const Header = () => {
 
 	return <>
 		<Head>
-			<title>Бизнес импорт</title>
+			<title>Бизнес Import</title>
 			<meta name="description" content="Надёжные услуги импорта для вашего бизнеса" />
 			<link rel="icon" href="/favicon.ico" />
 		</Head>

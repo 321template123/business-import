@@ -160,7 +160,7 @@ const ServiceCard = (service:IService) =>
 			</span>
 			
 			<ul className={`${service.blur?"blur-xs":""} h-[70%]`}>
-				{service.steps.map(item => <li className='font-medium '>{item}</li>)}
+				{service.steps.map((item,index) => <li key={index} className='font-medium '>{item}</li>)}
 			</ul>
 			<p className={`font-bold text-green-700 text-center ${service.blur?"blur-xs":""} h-[10%]`}>{service.price}</p>
 		</div>

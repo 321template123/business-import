@@ -1,17 +1,9 @@
 "use client"
 // pages/index.js
 // pages/index.js
-import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { PhoneIcon, EnvelopeIcon, PaperAirplaneIcon, UserIcon, ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'; // Импортируем иконки для меню
-import Link from 'next/link';
-import { ISocialLink, SocialLinks } from './constants';
 import { MainFull } from './components/MainBlock/MainFull';
 import { AboutFull } from './components/AboutBlock/AboutFull';
 import { ArticleFull } from './components/ArticleBlock/ArticleFull';
-import { ReviewFull } from './components/ReviewCarousel/ReviewFull';
 import { MainFormFull } from './components/MailFormBlock/MainFormFull';
 import { ContactFull } from './components/ContactBlock/ContactFull';
 import { Header } from './components/Header/Header';
@@ -21,7 +13,7 @@ export default function Home() {
 
   return <div className="font-sans text-gray-800">
 		<Header />
-		<main className="">
+		<main className="pt-20">
 			{/* Главный блок */}
 			<MainFull />
 			

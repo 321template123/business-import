@@ -56,7 +56,7 @@ const reviews:IReview[] = [
 ];
 
 export const ReviewFull = () => {
-	 const [fullscreenReview, setFullscreenReview] = useState<IReview | undefined>();  
+	 const [fullscreenReview] = useState<IReview | undefined>();  
 	const [currentIndex, setCurrentIndex] = useState<number>(0);
 
 	const visibleArticles = reviews.slice(currentIndex, currentIndex + 1);
