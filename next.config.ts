@@ -7,6 +7,9 @@ import type { NextConfig } from "next";
 module.exports = {
   output: 'export',
   trailingSlash: true,  // Recommended for static hosting
+	images: {
+    unoptimized: true,  // Глобально отключает оптимизацию для всех <Image>
+  },
 };
 
 // export default nextConfig;
