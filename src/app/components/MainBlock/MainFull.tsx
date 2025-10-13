@@ -4,10 +4,10 @@ import { ChatFull } from '../ChatBlock/ChatFull';
 import { XMarkIcon, QuestionMarkCircleIcon} from '@heroicons/react/24/solid';
 
 const MAIN_FULL_IMAGES:string[] = [
-	'/business-import/assets/main/main-1.png',
-	'/business-import/assets/main/main-2.png',
-	'/business-import/assets/main/main-3.png',
-	'/business-import/assets/main/main-4.png',
+	'/assets/main/main-1.png',
+	'/assets/main/main-2.png',
+	'/assets/main/main-3.png',
+	'/assets/main/main-4.png',
 ]
 
 export const MainFull = () => {

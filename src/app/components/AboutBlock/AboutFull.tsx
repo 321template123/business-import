@@ -5,7 +5,7 @@ export const AboutFull = () => {
 	return <section id="about" className="relative py-20 bg-white min-h-screen flex items-center">
 		<div className="absolute inset-0 md:m-20">
 			<Image
-				src="/business-import/assets/about/about-1.png"
+				src="/assets/about/about-1.png"
 				alt="Офис компании"
 				layout="fill"
 				objectFit="cover"
