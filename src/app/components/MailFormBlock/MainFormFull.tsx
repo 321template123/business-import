@@ -1,6 +1,5 @@
 import { EnvelopeIcon, PaperAirplaneIcon, UserIcon } from '@heroicons/react/24/solid'
 import axios from 'axios'
-import { m } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 
 export const MainFormFull = () => {
@@ -13,7 +12,7 @@ export const MainFormFull = () => {
 
 	const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
-		let form = new FormData()
+		const form = new FormData()
 
 		if(!mail || !name || !comt){
 			return
@@ -28,7 +27,7 @@ export const MainFormFull = () => {
 	}
 
 	useEffect(() => {
-		let timer = setTimeout(()=>{
+		const timer = setTimeout(()=>{
 			setShowAnswer(false)},5000)
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
