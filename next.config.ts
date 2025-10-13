@@ -1,13 +1,12 @@
 import type { NextConfig } from "next";
 
-const repo = 'business-import'
-const assetPrefix = `/${repo}/`
-const basePath = `/${repo}`
+// const repo = 'business-import'
+// const assetPrefix = `/${repo}/`
+// const basePath = `/${repo}`
 
-const nextConfig: NextConfig = {
-	// output: 'export',
-  // assetPrefix: assetPrefix,
-  basePath: basePath,
+module.exports = {
+  output: 'export',
+  trailingSlash: true,  // Recommended for static hosting
 };
 
-export default nextConfig;
+// export default nextConfig;
