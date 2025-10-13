@@ -3,16 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { ChatFull } from '../ChatBlock/ChatFull';
 import { XMarkIcon, QuestionMarkCircleIcon} from '@heroicons/react/24/solid';
 
-import MainOne from "./public/assets/main/main-1.png"
-import MainTwo from "./public/assets/main/main-2.png"
-import MainThree from "./public/assets/main/main-3.png"
-import MainFour from "./public/assets/main/main-4.png"
-
-const MAIN_FULL_IMAGES:any[] = [
-	MainOne,
-	MainTwo,
-	MainThree,
-	MainFour,
+const MAIN_FULL_IMAGES:string[] = [
+	'/assets/main/main-1.png',
+	'/assets/main/main-2.png',
+	'/assets/main/main-3.png',
+	'/assets/main/main-4.png',
 ]
 
 export const MainFull = () => {
