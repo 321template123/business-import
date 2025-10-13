@@ -24,7 +24,7 @@ export const ChatFull = () => {
 		query += `MaxPrice=${maxPrice}&`
 		query += `MinVolume=${volume}`
 		setLoad(!load)
-		axios.get(`http://businessimport.ru:8000/api/search?${query}`)
+		axios.get(`http://businessimport.ru:8080/api/search?${query}`)
 			.then(responce => console.log(responce.data))
 			.then(() => setLoad(false))
 	}
