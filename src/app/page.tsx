@@ -6,13 +6,14 @@ import { AboutFull } from './components/AboutBlock/AboutFull';
 import { ArticleFull } from './components/ArticleBlock/ArticleFull';
 import { MainFormFull } from './components/MailFormBlock/MainFormFull';
 import { ContactFull } from './components/ContactBlock/ContactFull';
-import { Header } from './components/Header/Header';
 import { ServicesFull } from './components/ServicesBlock/ServicesFull';
+import { Header } from './components/Header/Header';
 
 export default function Home() {
 
-  return <div className="font-sans text-gray-800">
+  return <div className="font-sans text-gray-800">		
 		<Header />
+
 		<main className="pt-20">
 			{/* Главный блок */}
 			<MainFull />

@@ -12,12 +12,6 @@ export const Header = () => {
   };
 
 	return <>
-		<Head>
-			<title>Бизнес Import</title>
-			<meta name="description" content="Надёжные услуги импорта для вашего бизнеса" />
-			<link rel="icon" href="/favicon.ico" />
-		</Head>
-
 		<header className="fixed top-0 left-0 w-full bg-white shadow-lg z-50">
 			<nav className="container mx-auto px-4 py-2 flex justify-between items-center">
 				<div className="text-3xl font-extrabold text-indigo-900">

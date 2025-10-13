@@ -23,7 +23,9 @@ export const MainFormFull = () => {
 		form.append("message",comt)
 		setShowAnswer(true)
 
-		axios.post(`http://businessimport.ru:8080/api/send-email`,form).then(()=>setShowAnswer(true))
+		axios.post(`http://businessimport.ru:8080/api/send-email`,form,{
+			headers: { 'Content-Type': 'application/json' }
+		}).then(()=>setShowAnswer(true))
 	}
 
 	useEffect(() => {
