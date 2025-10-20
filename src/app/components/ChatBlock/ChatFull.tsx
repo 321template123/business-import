@@ -1,10 +1,39 @@
-import { CheckBadgeIcon, ChevronLeftIcon, ChevronRightIcon, CubeIcon, EllipsisHorizontalIcon, LinkIcon, ScaleIcon, XMarkIcon } from '@heroicons/react/24/solid'
+import { ChevronLeftIcon, ChevronRightIcon, LinkIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {createPortal} from 'react-dom'
 import { BounceLoader } from 'react-spinners'
+
+interface IPrice{
+	min_quantity?: number
+	original_price_cny?: number
+	price_rub?: number
+	price_usd?: number
+}
+
+interface IItem{
+	dimensions: {
+		height?: number
+		length?: number
+		weight?: number
+		width?: number
+	}
+	id?: string
+	image?: string
+	location?: string | null
+	original_title?: string
+	min_order_quantity?: number
+	price_cny?: number
+	price_rub?: number
+	price_usd?: number
+	quantity_prices: IPrice[]
+	title?: string
+	url?: string
+	vendor?: string
+	selected?: boolean
+}
 
 export const ChatFull = () => {
 
@@ -19,107 +48,7 @@ export const ChatFull = () => {
 	const [page, setPage] = useState<number>(1)
 	const ITEMS_PER_PAGE = 2
 
-	const [items, setItems] = useState<any[]>([
-		 {
-			//габариты
-			dimensions: {
-				height: 11.5,
-				length: 17.5,
-				weight: 0.1,
-				width: 9.5
-			},
-			id: "abb-798221206257",//id товара
-			image: "https://cbu01.alicdn.com/img/ibank/O1CN01Rd71AO1nKZRxgw2dw_!!2214121275071-0-cib.jpg",//ссылка на картинку
-			location: null,//город откуда товар(думаю тебе не нужен, может быть пустым)
-			min_order_quantity: 1,//минимальное кол-во товара(может быть пустым)
-			original_title: "高版本方形小红书同款墨镜女时尚防紫外线缪缪太阳眼镜smu09w",//оригинальное название(думаю тебе не нужен)
-			price: 125.0, //цена
-			//кол-во товара и цена от кол-ва товара
-			quantity_prices: [
-				{
-					min_quantity: 1,//кол-во товара
-					original_price: 125.0 //цена 1 шт. за кол-во товара
-				},
-				{
-					min_quantity: 10,
-					original_price: 120.0
-				},
-				{
-					min_quantity: 100,
-					original_price: 105.0
-				}
-			],
-			title: "Квадратные маленькие модные солнцезащитные очки на солнечной энергии, защита от ультрафиолета, 09W",//название товара
-			url: "https://detail.1688.com/offer/798221206257.html",//ссылка на товар
-			vendor: "视界汇眼镜"//продавец(думаю тебе не нужен)
-		},
-		{
-			//габариты
-			dimensions: {
-				height: 11.5,
-				length: 17.5,
-				weight: 0.1,
-				width: 9.5
-			},
-			id: "abb-798221206257",//id товара
-			image: "https://cbu01.alicdn.com/img/ibank/O1CN01Rd71AO1nKZRxgw2dw_!!2214121275071-0-cib.jpg",//ссылка на картинку
-			location: null,//город откуда товар(думаю тебе не нужен, может быть пустым)
-			min_order_quantity: 1,//минимальное кол-во товара(может быть пустым)
-			original_title: "高版本方形小红书同款墨镜女时尚防紫外线缪缪太阳眼镜smu09w",//оригинальное название(думаю тебе не нужен)
-			price: 125.0, //цена
-			//кол-во товара и цена от кол-ва товара
-			quantity_prices: [
-				{
-					min_quantity: 1,//кол-во товара
-					original_price: 125.0 //цена 1 шт. за кол-во товара
-				},
-				{
-					min_quantity: 10,
-					original_price: 120.0
-				},
-				{
-					min_quantity: 100,
-					original_price: 105.0
-				}
-			],
-			title: "Квадратные маленькие модные солнцезащитные очки на солнечной энергии, защита от ультрафиолета, 09W",//название товара
-			url: "https://detail.1688.com/offer/798221206257.html",//ссылка на товар
-			vendor: "视界汇眼镜"//продавец(думаю тебе не нужен)
-		},
-		{
-			//габариты
-			dimensions: {
-				height: 11.5,
-				length: 17.5,
-				weight: 0.1,
-				width: 9.5
-			},
-			id: "abb-798221206257",//id товара
-			image: "https://cbu01.alicdn.com/img/ibank/O1CN01Rd71AO1nKZRxgw2dw_!!2214121275071-0-cib.jpg",//ссылка на картинку
-			location: null,//город откуда товар(думаю тебе не нужен, может быть пустым)
-			min_order_quantity: 1,//минимальное кол-во товара(может быть пустым)
-			original_title: "高版本方形小红书同款墨镜女时尚防紫外线缪缪太阳眼镜smu09w",//оригинальное название(думаю тебе не нужен)
-			price: 125.0, //цена
-			//кол-во товара и цена от кол-ва товара
-			quantity_prices: [
-				{
-					min_quantity: 1,//кол-во товара
-					original_price: 125.0 //цена 1 шт. за кол-во товара
-				},
-				{
-					min_quantity: 10,
-					original_price: 120.0
-				},
-				{
-					min_quantity: 100,
-					original_price: 105.0
-				}
-			],
-			title: "Квадратные маленькие модные солнцезащитные очки на солнечной энергии, защита от ультрафиолета, 09W",//название товара
-			url: "https://detail.1688.com/offer/798221206257.html",//ссылка на товар
-			vendor: "视界汇眼镜"//продавец(думаю тебе не нужен)
-		},
-	])
+	const [items, setItems] = useState<IItem[]>([])
 
 	const findItem = async () => {
 		let query = ""
@@ -227,7 +156,7 @@ export const ChatFull = () => {
 }
 
 interface IItemFullView {
-	item:any
+	item:IItem
 	close:()=>void
 	select:()=>void
 }
@@ -251,8 +180,8 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 				<div className="flex flex-col md:flex-row gap-4">
 					{/* Изображение */}
 					<div className="md:w-1/2">
-						<img 
-							src={item.image} 
+						<Image 
+							src={item.image ?? ""} 
 							alt={`Детальное изображение: ${item.title}`} 
 							className="w-full h-auto rounded-lg" 
 						/>
@@ -261,22 +190,22 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 					{/* Детали */}
 					<div className="md:w-1/2 flex flex-col justify-between">
 					{/* Описание */}
-						<div>
+						{/* <div>
 							<h3 className="text-lg font-semibold mb-2">Описание</h3>
 							<p className="text-sm text-gray-700">
 								{item.description || 'Подробное описание товара отсутствует. Свяжитесь с продавцом для дополнительной информации.'}
 							</p>
-						</div>
+						</div> */}
 											
 						{/* Цены со всеми опциями */}
 						<div>
 							<h3 className="text-lg font-semibold mb-2">Ценообразование</h3>
-							{item.minPrice && <p className="text-lg font-bold text-blue-400">От {item.minPrice} ₽</p>}
+							{/* {item.minPrice && <p className="text-lg font-bold text-blue-400">От {item.minPrice} ₽</p>} */}
 							{item.quantity_prices && (
 								<ul className="text-sm text-gray-700 space-y-1">
-									{item.quantity_prices.map((qp:any, index:number) => (
+									{item.quantity_prices.map((qp:IPrice, index:number) => (
 										<li key={index}>
-											{qp.min_quantity} шт.+: {qp.original_price} ₽ за штуку
+											{qp.min_quantity} шт.+: {qp.price_rub} ₽ за штуку
 										</li>
 									))}
 								</ul>
@@ -290,21 +219,21 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 								<li><strong>ID:</strong> {item.id}</li>
 								<li><strong>Размеры:</strong> {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см</li>
 								<li><strong>Вес:</strong> {item.dimensions.weight} кг</li>
-								{item.rating && <li><strong>Рейтинг:</strong> {item.rating}/5 ⭐</li>}
+								{/* {item.rating && <li><strong>Рейтинг:</strong> {item.rating}/5 ⭐</li>} */}
 							</ul>
 						</div>
 											
 						{/* Отзывы (если есть) */}
-						{item.reviews && item.reviews.length > 0 && (<>
-							 {/* <div>
+						{/* {item.reviews && item.reviews.length > 0 && (<>
+							 <div>
 							 	<h3 className="text-lg font-semibold mb-2">Отзывы</h3>
 							 	<ul className="text-sm text-gray-300 space-y-2">
 							 		{item.reviews.map((review, index) => (
 							 			<li key={index} className="bg-gray-700 p-2 rounded">{review}</li>
 							 		))}
 							 	</ul>
-							 </div> */}
-						</>)}
+							 </div>
+						</>)} */}
 											
 						{/* Действия */}
 						<div>
@@ -321,7 +250,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 							</div>
 							<div className='flex text-blue-600 font-bold'>
 								<LinkIcon className='w-5 mr-2'></LinkIcon>
-								<Link target='_blank' href={item.url}>Ссылка на источник</Link>
+								<Link target='_blank' href={item.url ?? ""}>Ссылка на источник</Link>
 							</div>
 						</div>
 					</div>
@@ -333,47 +262,47 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 
 
 interface IItemMiniView {
-	item:any
+	item:IItem
 	select:()=>void
 	view:()=>void
 }
 	
-const MiniCardV1 = ({item,select,view}:IItemMiniView) => 
-<div 
-	className={`bg-gray-700/50 p-3 rounded-lg hover:bg-gray-600/50 transition-all duration-200 relative ${item.selected ? 'ring-2 ring-green-400' : ''} w-full h-full`}
->
-	<img src={item.image} alt={item.title} className="w-40 h-40 object-cover rounded mx-auto mb-2" />
-	<p className="text-white text-sm truncate text-center">{item.title}</p>
-	<p className="text-white text-center font-bold">{item.price}</p>
-	<div className="flex flex-col items-center md:flex-row ">
-		<button 
-			onClick={select} 
-			className={`w-full flex-1 p-1 m-1 text-xs rounded ${item.selected ? 'bg-green-600 text-white' : 'bg-gray-600 text-white'} hover:bg-opacity-80 transition-colors`}
-		>
-			{item.selected ? 'Выбрано' : 'Выбрать'}
-		</button>
-		<button 
-			onClick={view} 
-			className="w-full flex-1 p-1 m-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-		>
-			Посмотреть
-		</button>
-	</div>
-	{item.selected && (
-		<div className="absolute top-1 right-1">
-			<CheckBadgeIcon className="w-6 h-6 text-green-400" />
-		</div>
-	)}
-</div>
+// const MiniCardV1 = ({item,select,view}:IItemMiniView) => 
+// <div 
+// 	className={`bg-gray-700/50 p-3 rounded-lg hover:bg-gray-600/50 transition-all duration-200 relative ${item.selected ? 'ring-2 ring-green-400' : ''} w-full h-full`}
+// >
+// 	<img src={item.image} alt={item.title} className="w-40 h-40 object-cover rounded mx-auto mb-2" />
+// 	<p className="text-white text-sm truncate text-center">{item.title}</p>
+// 	<p className="text-white text-center font-bold">{item.price}</p>
+// 	<div className="flex flex-col items-center md:flex-row ">
+// 		<button 
+// 			onClick={select} 
+// 			className={`w-full flex-1 p-1 m-1 text-xs rounded ${item.selected ? 'bg-green-600 text-white' : 'bg-gray-600 text-white'} hover:bg-opacity-80 transition-colors`}
+// 		>
+// 			{item.selected ? 'Выбрано' : 'Выбрать'}
+// 		</button>
+// 		<button 
+// 			onClick={view} 
+// 			className="w-full flex-1 p-1 m-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+// 		>
+// 			Посмотреть
+// 		</button>
+// 	</div>
+// 	{item.selected && (
+// 		<div className="absolute top-1 right-1">
+// 			<CheckBadgeIcon className="w-6 h-6 text-green-400" />
+// 		</div>
+// 	)}
+// </div>
 
 const MiniCardV2 = ({item,select,view}:IItemMiniView) => 
 <div className="m-2">
 	<div className={`md:w-full bg-gray-700 rounded-lg overflow-hidden m-2 ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
 		{/* Изображение */}
 		<div className="relative">
-			<img 
-				src={item.image} 
-				alt={item.title} 
+			<Image 
+				src={item.image ?? ""} 
+				alt={item.title ?? ""} 
 				className="w-full h-full object-cover rounded-xl p-2" 
 			/>
 		</div>
@@ -386,15 +315,15 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 			
 			{/* Цены */}
 			<div className="mb-2">
-				<span className="text-lg font-bold text-blue-600">
+				{/* <span className="text-lg font-bold text-blue-600">
 					от {item.minPrice} USD
-				</span>
+				</span> */}
 				{item.quantity_prices && item.quantity_prices.length > 1 && (
 					<div className="text-xs text-gray-500">
 						<ul className="list-disc pl-4">
-							{item.quantity_prices.map((qp:any, index:number) => (
+							{item.quantity_prices.map((qp:IPrice, index:number) => (
 								<li key={index} className="py-1">
-									{qp.min_quantity} шт.: {qp.original_price} USD
+									{qp.min_quantity} шт.: {qp.price_rub} ₽
 								</li>
 							))}
 						</ul>

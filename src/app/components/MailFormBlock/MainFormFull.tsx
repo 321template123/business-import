@@ -36,18 +36,6 @@ export const MainFormFull = () => {
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
 
-	const findMyItems = (event:any) => {
-		console.log(event)
-	}
-
-	useEffect(()=>{
-		window.addEventListener('storage', (event:any)=>console.log(event));
-
-		return () => {
-			window.removeEventListener('storage',findMyItems)
-		}
-	},[])
-
 	return <section id="contact-form" className="pb-20 bg-gray-100 flex justify-center">
 		<div className="container p-8 py-20 flex flex-col justify-center">
 			<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Оставить заявку</h2>
