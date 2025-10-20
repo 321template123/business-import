@@ -61,10 +61,7 @@ export const ChatFull = () => {
 		query += `MinVolume=${volume}`
 		setLoad(!load)
 		axios.get(`/api/search?${query}`)
-			.then(responce => {
-				console.log(responce.data.items)
-				setItems(responce.data.items)
-			})
+			.then(responce =>setItems(responce.data.items))
 			.then(() => setLoad(false))
 			.catch(() => setLoad(false))
 	}
@@ -128,7 +125,7 @@ export const ChatFull = () => {
 						<div className='grid grid-cols-2 place-items-center'>
 							{displayedItems.map((item, index) => (
 								// <MiniCardV1 key={index} item={item} select={()=>toggleSelected(index)} view={()=>setShowItem(item)}/>
-								<MiniCardV2 key={index} item={item} select={()=>toggleSelected(index)} view={()=>setShowItem(index)}/>
+								<MiniCardV2 key={index} item={item} select={()=>toggleSelected(index)} view={()=>setShowItem((page - 1) * ITEMS_PER_PAGE + index)}/>
 							))}
 						</div>
 						{totalPages > 1 && (
