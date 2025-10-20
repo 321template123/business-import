@@ -1,4 +1,4 @@
-import { EnvelopeIcon, PaperAirplaneIcon, UserIcon } from '@heroicons/react/24/solid'
+import { EnvelopeIcon, PaperAirplaneIcon, PhoneIcon, ShieldCheckIcon, UserIcon } from '@heroicons/react/24/solid'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
@@ -6,7 +6,8 @@ export const MainFormFull = () => {
 
 	const [name, setName] = useState<string>()
 	const [mail, setMail] = useState<string>()
-	const [comt, setcomt] = useState<string>()
+	const [phone, setPhone] = useState<string>()
+	const [comt, setComt] = useState<string>()
 
 	const [showAnswer, setShowAnswer] = useState<boolean>(true)
 
@@ -23,7 +24,7 @@ export const MainFormFull = () => {
 		form.append("message",comt)
 		setShowAnswer(true)
 
-		axios.post(`http://businessimport.ru:8080/api/send-email`,form,{
+		axios.post(`/api/send-email`,form,{
 			headers: { 'Content-Type': 'application/json' }
 		}).then(()=>setShowAnswer(true))
 	}
@@ -33,6 +34,18 @@ export const MainFormFull = () => {
 			setShowAnswer(false)},5000)
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
+
+	const findMyItems = (event:any) => {
+		console.log(event)
+	}
+
+	useEffect(()=>{
+		window.addEventListener('storage', (event:any)=>console.log(event));
+
+		return () => {
+			window.removeEventListener('storage',findMyItems)
+		}
+	},[])
 
 	return <section id="contact-form" className="pb-20 bg-gray-100 flex justify-center">
 		<div className="container p-8 py-20 flex flex-col justify-center">
@@ -46,14 +59,35 @@ export const MainFormFull = () => {
 					<EnvelopeIcon className="h-6 w-6 text-gray-400" />
 					<input value={mail} onChange={(e)=>setMail(e.target.value)} type="email" id="email" placeholder="Электронная почта" className="flex-1 block w-full outline-none text-gray-700" required />
 				</div>
+				<div className="flex items-center space-x-4 border-b border-gray-200 py-2">
+					<PhoneIcon className="h-6 w-6 text-gray-400" />
+					<input value={phone} onChange={(e)=>setPhone(e.target.value)} type="text" id="phone" placeholder="Телефон для связи" className="flex-1 block w-full outline-none text-gray-700" required />
+				</div>
 				<div>
 					<label htmlFor="message" className="sr-only">Сообщение</label>
-					<textarea value={comt} onChange={(e)=>setcomt(e.target.value)} id="message" rows={4} placeholder="Ваше сообщение..." className="mt-1 block w-full border border-gray-300 rounded-lg p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-colors" required></textarea>
+					<textarea value={comt} onChange={(e)=>setComt(e.target.value)} id="message" rows={4} placeholder="Ваше сообщение..." className="mt-1 block w-full border border-gray-300 rounded-lg p-4 outline-none focus:ring-2 focus:ring-blue-500 transition-colors" required></textarea>
 				</div>
 				<button type="submit" className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex justify-center items-center space-x-2">
 					<span>Отправить заявку</span>
 					<PaperAirplaneIcon className="h-5 w-5" />
 				</button>
+				<div className="flex items-center space-x-4 border-b border-gray-200 py-2">
+					<ShieldCheckIcon className="h-6 w-6 text-blue-400" />
+					<input 
+						// checked={consent} 
+						// onChange={(e) => setConsent(e.target.checked)} 
+						type="checkbox" 
+						id="consent" 
+						className="h-4 w-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" 
+						required 
+					/>
+					<label htmlFor="consent" className="flex-1 text-sm text-gray-700">
+						Я согласен на обработку персональных данных в соответствии с{' '}
+						<a href="/privacy-policy" className="text-blue-600 hover:underline">
+							Политикой конфиденциальности
+						</a>
+					</label>
+				</div>
 				{showAnswer && <>
 					<h4 className='text-green-700 font-bold text-center'>Ваша заявка принята!</h4>
 					<h4 className='text-green-700 font-bold text-center'>Ожидайте ответа от консультанта</h4>

@@ -118,7 +118,7 @@ export const ArticleFull = () => {
   }, [fullscreenArticle]);
 
 	return <>
-		<section id="articles" className="py-20 flex items-center">
+		<section id="articles" className="py-20 flex items-center bg-gray-100">
 			<div className="container mx-auto px-8">
 				<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Полезные статьи</h2>
 				<div className="relative">

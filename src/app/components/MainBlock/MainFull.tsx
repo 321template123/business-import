@@ -22,6 +22,20 @@ export const MainFull = () => {
     return () => clearInterval(timer);
   }, []);
 
+	useEffect(() => {
+			// Отключаем или включаем прокрутку страницы в зависимости от состояния модального окна
+			if (showHelp) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = 'auto';
+			}
+	
+			// Очистка эффекта при размонтировании компонента
+			return () => {
+				document.body.style.overflow = 'auto';
+			};
+		}, [showHelp]);
+
 	return <section id="main" className="relative flex flex-col md:flex-row items-center justify-center overflow-hidden min-h-screen flex items-center">
 	<div className="absolute inset-0 z-0">
 		{MAIN_FULL_IMAGES.map((image, index) => (
@@ -64,6 +78,7 @@ export const MainFull = () => {
 		<ul className='text-xl text-center md:text-end'>
 			<li><span className='font-extrabold'> - </span> Доступен в любое время</li>
 			<li><span className='font-extrabold'> - </span> Моментальный расчёт предварительной цены</li>
+			<li><span className='font-extrabold'> - </span> 10% скидка при использовании «ИИ-консультанта»</li>
 		</ul>
 	</div>
 

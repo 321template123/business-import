@@ -134,11 +134,11 @@ export const ServicesFull = () => {
 
 	const [toogleMore, setToogleMore] = useState<boolean>(false)
 
-	return <section id="services" className="pt-20 bg-gray-100 min-h-screen flex items-center">
+	return <section id="services" className="pt-20 min-h-screen flex items-center">
 		<div className="container mx-auto px-8">
 			<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Услуги</h2>
 			<div className={`relative ${toogleMore? "":"h-[500px] xl:h-[600px] overflow-hidden"}`}>
-				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-10'>
+				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-10 p-5'>
 					{SERVICES.map((item:IService,index:number) => {
 						return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2}/>
 					})}
@@ -151,7 +151,7 @@ export const ServicesFull = () => {
 }
 
 const ServiceCard = (service:IService) => 
-	<div className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden`}>
+	<div className={`bg-white border-4 border-blue-700/80 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden`}>
 		<div className="p-6 flex flex-col justify-between min-h-[400px]">
 			<h3 className="text-xl font-bold text-indigo-900 mb-2 h-[10%]">{service.title}</h3>
 			<span className={`text-gray-600 ${service.blur?"blur-xs":""} h-[10%]`}>
