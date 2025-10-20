@@ -61,7 +61,10 @@ export const ChatFull = () => {
 		query += `MinVolume=${volume}`
 		setLoad(!load)
 		axios.get(`/api/search?${query}`)
-			.then(responce => setItems(responce.data))
+			.then(responce => {
+				console.log(responce.data.items)
+				setItems(responce.data.items)
+			})
 			.then(() => setLoad(false))
 			.catch(() => setLoad(false))
 	}
