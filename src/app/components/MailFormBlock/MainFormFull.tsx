@@ -22,6 +22,7 @@ export const MainFormFull = () => {
 		form.append("email",mail)
 		form.append("fio",name)
 		form.append("message",comt)
+		form.append("approval","true")
 		setShowAnswer(true)
 
 		axios.post(`/api/send-email`,form,{
