@@ -52,7 +52,7 @@ export const ChatFull = () => {
 
 	const findItem = async () => {
 		let query = ""
-		query += "language=en&"
+		query += "language=ru&"
 		query += `framePosition=${0}&`
 		query += `frameSize=${30}&`
 		query += `ItemTitle=${title}&`
@@ -177,7 +177,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 			</button>
 			<div className="p-6 md:p-8">
 				{/* Заголовок */}
-				<h2 id="modal-title" className="text-xl font-bold mb-4">{item.title}</h2>
+				<h2 id="modal-title" className="text-xl font-bold mb-4">{item.title ?? "_"}</h2>
               
 				{/* Основной контент: изображение и детали */}
 				<div className="flex flex-col md:flex-row gap-4">
@@ -185,7 +185,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 					<div className="md:w-1/2">
 						<Image 
 							src={item.image ?? ""} 
-							alt={`Детальное изображение: ${item.title}`} 
+							alt={`Детальное изображение: ${item.title ?? "_"}`} 
 							className="w-full h-auto rounded-lg" 
 						/>
 					</div>
@@ -208,7 +208,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 								<ul className="text-sm text-gray-700 space-y-1">
 									{item.quantity_prices.map((qp:IPrice, index:number) => (
 										<li key={index}>
-											{qp.min_quantity} шт.+: {qp.price_rub} ₽ за штуку
+											{qp.min_quantity ?? "_"} шт.+: {qp.price_rub ?? "_"} ₽ за штуку
 										</li>
 									))}
 								</ul>
@@ -219,9 +219,9 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 						<div>
 							<h3 className="text-lg font-semibold mb-2">Характеристики</h3>
 							<ul className="text-sm text-gray-700 space-y-1">
-								<li><strong>ID:</strong> {item.id}</li>
-								<li><strong>Размеры:</strong> {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см</li>
-								<li><strong>Вес:</strong> {item.dimensions.weight} кг</li>
+								<li><strong>ID:</strong> {item.id ?? "_"}</li>
+								<li><strong>Размеры:</strong> {item.dimensions.height ?? "_"}×{item.dimensions.width ?? "_"}×{item.dimensions.length ?? "_"} см</li>
+								<li><strong>Вес:</strong> {item.dimensions.weight ?? "_"} кг</li>
 								{/* {item.rating && <li><strong>Рейтинг:</strong> {item.rating}/5 ⭐</li>} */}
 							</ul>
 						</div>
@@ -326,7 +326,7 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 						<ul className="list-disc pl-4">
 							{item.quantity_prices.map((qp:IPrice, index:number) => (
 								<li key={index} className="py-1">
-									{qp.min_quantity} шт.: {qp.price_rub} ₽
+									{qp.min_quantity ?? "_"} шт.: {qp.price_rub ?? "_"} ₽
 								</li>
 							))}
 						</ul>
@@ -336,7 +336,7 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 			
 			{/* Габариты */}
 			<div className="text-xs text-gray-500 mb-2">
-				Габариты: {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см, вес: {item.dimensions.weight} кг
+				Габариты: {item.dimensions.height ?? "_"}×{item.dimensions.width ?? "_"}×{item.dimensions.length ?? "_"} см, вес: {item.dimensions.weight ?? "_"} кг
 			</div>
 			
 			{/* ID и мин. заказ (опционально, скрыть если не нужно) */}
