@@ -7,32 +7,32 @@ import {createPortal} from 'react-dom'
 import { BounceLoader } from 'react-spinners'
 
 interface IPrice{
-	min_quantity?: number
-	original_price_cny?: number
-	price_rub?: number
-	price_usd?: number
+	min_quantity: string
+	original_price_cny: string
+	price_rub: string
+	price_usd: string
 }
 
 interface IItem{
 	dimensions: {
-		height?: number
-		length?: number
-		weight?: number
-		width?: number
+		height: string
+		length: string
+		weight: string
+		width: string
 	}
-	id?: string
-	image?: string
-	location?: string | null
-	original_title?: string
-	min_order_quantity?: number
-	price_cny?: number
-	price_rub?: number
-	price_usd?: number
+	id: string
+	image: string
+	location: string
+	original_title: string
+	min_order_quantity: string
+	price_cny: string
+	price_rub: string
+	price_usd: string
 	quantity_prices: IPrice[]
-	title?: string
-	url?: string
-	vendor?: string
-	selected?: boolean
+	title: string
+	url: string
+	vendor: string
+	selected: boolean
 }
 
 export const ChatFull = () => {
@@ -177,15 +177,15 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 			</button>
 			<div className="p-6 md:p-8">
 				{/* Заголовок */}
-				<h2 id="modal-title" className="text-xl font-bold mb-4">{item.title ?? "_"}</h2>
+				<h2 id="modal-title" className="text-xl font-bold mb-4">{item.title}</h2>
               
 				{/* Основной контент: изображение и детали */}
 				<div className="flex flex-col md:flex-row gap-4">
 					{/* Изображение */}
 					<div className="md:w-1/2">
 						<Image 
-							src={item.image ?? ""} 
-							alt={`Детальное изображение: ${item.title ?? "_"}`} 
+							src={item.image} 
+							alt={`Детальное изображение: ${item.title}`} 
 							className="w-full h-auto rounded-lg" 
 						/>
 					</div>
@@ -208,7 +208,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 								<ul className="text-sm text-gray-700 space-y-1">
 									{item.quantity_prices.map((qp:IPrice, index:number) => (
 										<li key={index}>
-											{qp.min_quantity ?? "_"} шт.+: {qp.price_rub ?? "_"} ₽ за штуку
+											{qp.min_quantity} шт.+: {qp.price_rub} ₽ за штуку
 										</li>
 									))}
 								</ul>
@@ -219,9 +219,9 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 						<div>
 							<h3 className="text-lg font-semibold mb-2">Характеристики</h3>
 							<ul className="text-sm text-gray-700 space-y-1">
-								<li><strong>ID:</strong> {item.id ?? "_"}</li>
-								<li><strong>Размеры:</strong> {item.dimensions.height ?? "_"}×{item.dimensions.width ?? "_"}×{item.dimensions.length ?? "_"} см</li>
-								<li><strong>Вес:</strong> {item.dimensions.weight ?? "_"} кг</li>
+								<li><strong>ID:</strong> {item.id}</li>
+								<li><strong>Размеры:</strong> {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см</li>
+								<li><strong>Вес:</strong> {item.dimensions.weight} кг</li>
 								{/* {item.rating && <li><strong>Рейтинг:</strong> {item.rating}/5 ⭐</li>} */}
 							</ul>
 						</div>
@@ -253,7 +253,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 							</div>
 							<div className='flex text-blue-600 font-bold'>
 								<LinkIcon className='w-5 mr-2'></LinkIcon>
-								<Link target='_blank' href={item.url ?? ""}>Ссылка на источник</Link>
+								<Link target='_blank' href={item.url}>Ссылка на источник</Link>
 							</div>
 						</div>
 					</div>
@@ -304,8 +304,8 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 		{/* Изображение */}
 		<div className="relative">
 			<Image 
-				src={item.image ?? ""} 
-				alt={item.title ?? ""} 
+				src={item.image} 
+				alt={item.title} 
 				className="w-full h-full object-cover rounded-xl p-2" 
 			/>
 		</div>
@@ -326,7 +326,7 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 						<ul className="list-disc pl-4">
 							{item.quantity_prices.map((qp:IPrice, index:number) => (
 								<li key={index} className="py-1">
-									{qp.min_quantity ?? "_"} шт.: {qp.price_rub ?? "_"} ₽
+									{qp.min_quantity} шт.: {qp.price_rub} ₽
 								</li>
 							))}
 						</ul>
@@ -336,7 +336,7 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 			
 			{/* Габариты */}
 			<div className="text-xs text-gray-500 mb-2">
-				Габариты: {item.dimensions.height ?? "_"}×{item.dimensions.width ?? "_"}×{item.dimensions.length ?? "_"} см, вес: {item.dimensions.weight ?? "_"} кг
+				Габариты: {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см, вес: {item.dimensions.weight} кг
 			</div>
 			
 			{/* ID и мин. заказ (опционально, скрыть если не нужно) */}
