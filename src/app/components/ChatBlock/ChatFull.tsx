@@ -1033,8 +1033,8 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 						{/* Цены со всеми опциями */}
 						<div>
 							<h3 className="text-lg font-semibold mb-2">Ценообразование</h3>
-							{/* {item.minPrice && <p className="text-lg font-bold text-blue-400">От {item.minPrice} ₽</p>} */}
-							{item.quantity_prices && (
+							{item.quantity_prices && <>
+								{item.price_rub && <p className="text-lg font-bold text-blue-400">От {item.price_rub} ₽</p>}
 								<ul className="text-sm text-gray-700 space-y-1">
 									{item.quantity_prices.map((qp:IPrice, index:number) => (
 										<li key={index}>
@@ -1042,7 +1042,7 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 										</li>
 									))}
 								</ul>
-							)}
+							</>}
 						</div>
 											
 						{/* Характеристики */}
@@ -1140,6 +1140,7 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 				className="object-cover rounded-xl p-2" 
 				width={800}
 				height={800}
+				quality={50}
 				loading='eager'
 				placeholder="blur"
 				blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
