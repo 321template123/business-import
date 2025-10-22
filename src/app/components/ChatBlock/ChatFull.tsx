@@ -1131,16 +1131,16 @@ interface IItemMiniView {
 
 const MiniCardV2 = ({item,select,view,show}:IItemMiniView) => 
 <div className={`m-2 ${show ? '' : 'hidden'}`}>
-	<div className={`md:w-full bg-gray-700 rounded-lg overflow-hidden ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
+	<div className={`md:w-full min-h-[600px] bg-gray-700 rounded-lg overflow-hidden ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
 		{/* Изображение */}
-		<div className="relative">
+		<div className="relative h-full">
 			<Image 
 				src={item.image} 
 				alt={item.title} 
 				className="rounded-xl p-2" 
-				width={800}
-				height={800}
-				quality={80}
+				// width={800}
+				// height={800}
+				// quality={80}
 				fill={true}
 				loading='eager'
 				placeholder="blur"
