@@ -1127,8 +1127,8 @@ interface IItemMiniView {
 // </div>
 
 const MiniCardV2 = ({item,select,view,show}:IItemMiniView) => 
-<div className="m-2">
-	<div className={`md:w-full bg-gray-700 rounded-lg overflow-hidden m-2 ${item.selected ? 'ring-2 ring-green-400' : ''} ${show ? '' : 'hidden'}`}>
+<div className={`m-2 ${show ? '' : 'hidden'}`}>
+	<div className={`md:w-full bg-gray-700 rounded-lg overflow-hidden m-2 ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
 		{/* Изображение */}
 		<div className="relative">
 			<Image 
