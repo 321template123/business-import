@@ -1148,8 +1148,8 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 		</div>
 		
 		{/* Информация о товаре */}
-		<div className="p-3">
-			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2 break-all">
+		<div className="m-2 flex flex-col items-center">
+			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2 max-w-[70%] break-all">
 				{item.title}
 			</h4>
 			
@@ -1180,7 +1180,7 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 			{/* <div className="text-xs text-gray-400">
 				ID: {item.id} | Мин. заказ: {item.min_order_quantity} шт.
 			</div> */}
-			<div className='flex flex-col md:flex-row justify-around'>
+			<div className='flex flex-col md:flex-row justify-around w-full'>
 				<button 
 					onClick={select} 
 					className={`w-full flex-1 p-1 m-1 text-xs rounded ${item.selected ? 'bg-green-600 text-white' : 'bg-gray-600 text-white'} hover:bg-opacity-80 transition-colors`}
