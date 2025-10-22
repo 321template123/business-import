@@ -314,10 +314,10 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 			</h4>
 			
 			{/* Цены */}
-			<div className="mb-2">
-				{/* <span className="text-lg font-bold text-blue-600">
+			{/* <div className="mb-2">
+				<span className="text-lg font-bold text-blue-600">
 					от {item.minPrice} USD
-				</span> */}
+				</span>
 				{item.quantity_prices && item.quantity_prices.length > 1 && (
 					<div className="text-xs text-gray-500">
 						<ul className="list-disc pl-4">
@@ -329,12 +329,12 @@ const MiniCardV2 = ({item,select,view}:IItemMiniView) =>
 						</ul>
 					</div>
 				)}
-			</div>
+			</div> */}
 			
 			{/* Габариты */}
-			<div className="text-xs text-gray-500 mb-2">
+			{/* <div className="text-xs text-gray-500 mb-2">
 				Габариты: {item.dimensions.height}×{item.dimensions.width}×{item.dimensions.length} см, вес: {item.dimensions.weight} кг
-			</div>
+			</div> */}
 			
 			{/* ID и мин. заказ (опционально, скрыть если не нужно) */}
 			{/* <div className="text-xs text-gray-400">
