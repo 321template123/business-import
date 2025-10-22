@@ -1149,16 +1149,16 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 		
 		{/* Информация о товаре */}
 		<div className="p-3">
-			{/* <h4 className="text-sm font-medium text-white line-clamp-2 mb-2">
+			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2 max-w-full">
 				{item.title}
-			</h4> */}
+			</h4>
 			
 			{/* Цены */}
-			{/* <div className="mb-2">
+			<div className="mb-2">
 				<span className="text-lg font-bold text-blue-600">
-					от {item.minPrice} USD
+					<p className="text-lg font-bold text-blue-400">От {item.price_rub} ₽</p>
 				</span>
-				{item.quantity_prices && item.quantity_prices.length > 1 && (
+				{/* {item.quantity_prices && item.quantity_prices.length > 1 && (
 					<div className="text-xs text-gray-500">
 						<ul className="list-disc pl-4">
 							{item.quantity_prices.map((qp:IPrice, index:number) => (
@@ -1168,8 +1168,8 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 							))}
 						</ul>
 					</div>
-				)}
-			</div> */}
+				)} */}
+			</div>
 			
 			{/* Габариты */}
 			{/* <div className="text-xs text-gray-500 mb-2">
