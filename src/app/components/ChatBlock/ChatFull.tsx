@@ -1137,10 +1137,11 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 			<Image 
 				src={item.image} 
 				alt={item.title} 
-				className="object-cover rounded-xl p-2" 
+				className="rounded-xl p-2" 
 				width={800}
 				height={800}
-				quality={50}
+				quality={80}
+				fill={true}
 				loading='eager'
 				placeholder="blur"
 				blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
