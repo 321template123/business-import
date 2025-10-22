@@ -1131,17 +1131,16 @@ interface IItemMiniView {
 
 const MiniCardV2 = ({item,select,view,show}:IItemMiniView) => 
 <div className={`m-2 ${show ? '' : 'hidden'}`}>
-	<div className={`md:w-full min-h-[600px] bg-gray-700 rounded-lg overflow-hidden ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
+	<div className={`md:w-full bg-gray-700 rounded-lg overflow-hidden ${item.selected ? 'ring-2 ring-green-400' : ''}`}>
 		{/* Изображение */}
-		<div className="relative h-full">
+		<div className="relative">
 			<Image 
 				src={item.image} 
 				alt={item.title} 
-				className="rounded-xl p-2" 
-				// width={800}
-				// height={800}
-				// quality={80}
-				fill={true}
+				className="object-cover rounded-xl p-2" 
+				width={800}
+				height={800}
+				quality={80}
 				loading='eager'
 				placeholder="blur"
 				blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='
@@ -1150,9 +1149,9 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 		
 		{/* Информация о товаре */}
 		<div className="p-3">
-			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2">
+			{/* <h4 className="text-sm font-medium text-white line-clamp-2 mb-2">
 				{item.title}
-			</h4>
+			</h4> */}
 			
 			{/* Цены */}
 			{/* <div className="mb-2">
