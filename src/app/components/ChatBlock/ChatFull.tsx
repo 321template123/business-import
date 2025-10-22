@@ -1149,7 +1149,7 @@ const MiniCardV2 = ({item,select,view,show}:IItemMiniView) =>
 		
 		{/* Информация о товаре */}
 		<div className="p-3">
-			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2 max-w-full">
+			<h4 className="text-sm font-medium text-white line-clamp-2 mb-2 break-all">
 				{item.title}
 			</h4>
 			
