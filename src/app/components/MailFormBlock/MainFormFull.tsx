@@ -19,14 +19,14 @@ export const MainFormFull = () => {
 		event.preventDefault()
 		const form = new FormData()
 
-		if(!mail || !name || !comt){
+		if(!mail || !name || !comt || !phone){
 			return
 		}
 
 		form.append("email",mail)
 		form.append("fio",name)
 		form.append("message",comt)
-		form.append("phone",phone ?? "")
+		form.append("phone",phone)
 		form.append("approval","true")
 		setShowAnswer(true)
 
@@ -104,14 +104,14 @@ export const MailFormMini = ({coment}:IMainFormFull) => {
 		event.preventDefault()
 		const form = new FormData()
 
-		if(!mail || !name || !comt){
+		if(!mail || !name || !comt || !phone){
 			return
 		}
 
 		form.append("email",mail)
 		form.append("fio",name)
 		form.append("message",comt)
-		form.append("phone",phone ?? "")
+		form.append("phone",phone)
 		form.append("approval","true")
 		form.append("useBot","true")
 		setShowAnswer(true)
