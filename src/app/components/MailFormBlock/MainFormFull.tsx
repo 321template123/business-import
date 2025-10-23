@@ -2,12 +2,16 @@ import { EnvelopeIcon, PaperAirplaneIcon, PhoneIcon, ShieldCheckIcon, UserIcon }
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-export const MainFormFull = () => {
+export interface IMainFormFull{
+	coment?: string
+}
+
+export const MainFormFull = ({coment}:IMainFormFull) => {
 
 	const [name, setName] = useState<string>()
 	const [mail, setMail] = useState<string>()
 	const [phone, setPhone] = useState<string>()
-	const [comt, setComt] = useState<string>()
+	const [comt, setComt] = useState<string>(coment ?? "")
 
 	const [showAnswer, setShowAnswer] = useState<boolean>(true)
 
