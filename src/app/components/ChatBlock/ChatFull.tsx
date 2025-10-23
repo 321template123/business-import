@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import {createPortal} from 'react-dom'
 import { BounceLoader } from 'react-spinners'
-import { IMainFormFull, MainFormFull } from '../MailFormBlock/MainFormFull'
+import { IMainFormFull, MailFormMini } from '../MailFormBlock/MainFormFull'
 
 interface IPrice{
 	min_quantity: string
@@ -400,7 +400,7 @@ const MailFormFull = ({coment,close}:IMailFormFull) =>
 					<XMarkIcon className="h-8 w-8" />
 				</button>
 				<div className="p-6 md:p-8">
-					<MainFormFull coment={coment} />
+					<MailFormMini coment={coment} />
 				</div>
 			</div>
 		</div>
