@@ -138,7 +138,7 @@ export const ServicesFull = () => {
 		<div className="container mx-auto px-8">
 			<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Услуги</h2>
 			<div className={`relative ${toogleMore? "":"h-[500px] xl:h-[600px] overflow-hidden"}`}>
-				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-10 p-5'>
+				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-2 p-1 md:mx-10 md:p-5'>
 					{SERVICES.map((item:IService,index:number) => {
 						return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2}/>
 					})}
