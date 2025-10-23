@@ -110,9 +110,10 @@ export const ChatFull = () => {
 
 	useEffect(() => {
 			// Отключаем или включаем прокрутку страницы в зависимости от состояния модального окна
-			if (showItem > -1) {
+			if (showItem > -1 || showMailForm) {
 				document.body.style.overflow = 'hidden';
-			} else {
+			}
+			if (showItem == -1 && !showMailForm) {
 				document.body.style.overflow = 'auto';
 			}
 	

@@ -111,6 +111,7 @@ export const MailFormMini = ({coment}:IMainFormFull) => {
 		form.append("fio",name)
 		form.append("message",comt)
 		form.append("approval","true")
+		form.append("useBot","true")
 		setShowAnswer(true)
 
 		axios.post(`/api/send-email`,form,{
