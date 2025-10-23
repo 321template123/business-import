@@ -100,7 +100,7 @@ const HelpFullScreenView = ({close}:{close:()=>void}) =>
 			<XMarkIcon className="h-8 w-8" />
 		</button>
 		<div className="p-6 md:p-8">
-			<h1 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-4">Просим Вас обратить внимание на следующие пункты:</h1>
+			<h1 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-4 w-10/12">Просим Вас обратить внимание на следующие пункты:</h1>
 			<div>
 1️⃣ Внимательно формулируйте запрос на поиск. Чем точнее он будет, тем точечнее осуществиться поиск. Пример: <br />
 «кроссовки Nike AirMAX97»✅ <br />

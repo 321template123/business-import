@@ -183,7 +183,7 @@ const ArticleFullScreenView = ({article,close}:IArticleFullScreenView) =>
 	<div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
 		<button
 			onClick={close}
-			className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-2 bg-white"
+			className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-1 m-1 bg-white rounded-xl"
 			aria-label="Закрыть"
 		>
 			<XMarkIcon className="h-8 w-8" />

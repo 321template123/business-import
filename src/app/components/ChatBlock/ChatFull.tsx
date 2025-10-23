@@ -70,6 +70,19 @@ export const ChatFull = () => {
 			.catch(() => setLoad(false))
 	}
 
+	const prepareForm = ():string => {
+
+		let result = "Вы отметили товары:\n\n"
+
+		items.filter((item:IItem) => item.selected).forEach((item:IItem) => {
+			result += "\t => " + item.title + "\n"
+			result += "\t\t" + item.url + "\n\n"
+		})
+
+		
+		return result
+	}
+
 	const toggleSelected = (index: number) => {
 		// Обновляем глобальный индекс в массиве items (учитывая пагинацию)
 		setItems(prevItems => 
