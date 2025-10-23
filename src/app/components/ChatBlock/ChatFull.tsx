@@ -75,8 +75,8 @@ export const ChatFull = () => {
 		let result = "Вы отметили товары:\n\n"
 
 		items.filter((item:IItem) => item.selected).forEach((item:IItem) => {
-			result += "\t => " + item.title + ""
-			result += "\t\t" + item.url + "\n"
+			result += "\t => " + item.title + "\n"
+			result += "\t\t" + item.url + "\n\n"
 		})
 
 		
