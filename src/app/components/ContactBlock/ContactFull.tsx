@@ -26,8 +26,8 @@ export const ContactFull = () => {
 		</div> */}
 		
 
-		<div className='grid gap-5 grid-cols-2 place-content-center'>
-			{SocialLinks.map((item:ISocialLink,index:number)=><Link target="_blank" key={index} href={item.link} className='flex flex-col md:flex-row items-center justify-center gap-5'>
+		<div className='grid gap-5 grid-cols-1 md:grid-cols-2 place-content-center'>
+			{SocialLinks.map((item:ISocialLink,index:number)=><Link target="_blank" key={index} href={item.link} className='flex items-center justify-center gap-5'>
 				<Image 
 					src={item.icon}
 					alt={item.name}
