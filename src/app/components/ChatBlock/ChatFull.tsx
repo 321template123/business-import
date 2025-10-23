@@ -108,7 +108,7 @@ export const ChatFull = () => {
 				document.body.style.overflow = 'auto';
 			};
 
-		}, [showItem]);
+		}, [showItem,showMailForm]);
 
 	return <>
 		<div className='p-2 bg-gray-500/30 h-auto rounded-xl flex flex-col'>
@@ -156,8 +156,12 @@ export const ChatFull = () => {
 		</div>
 		{showItem >= 0 && <ItemFullView item={items[showItem]} close={() => setShowItem(-1)} select={()=>toggleSelected(showItem)}/>}
 		{showMailForm && <MailFormFull close={() => setShowMailForm(false)} coment={`Вас заинтерисовали товары:
-		${items.filter((item:IItem) => item.selected).map((item:IItem) => `${item.title}[${item.url}]
-		`)}
+${items.filter((item:IItem) => item.selected).map((item:IItem) => {
+	return ` - ${item.title}
+	[${item.url}]
+
+`
+})}
 		`}></MailFormFull>}
 	</>
 }
