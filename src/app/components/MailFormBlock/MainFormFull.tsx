@@ -26,6 +26,7 @@ export const MainFormFull = () => {
 		form.append("email",mail)
 		form.append("fio",name)
 		form.append("message",comt)
+		form.append("phone",phone ?? "")
 		form.append("approval","true")
 		setShowAnswer(true)
 
@@ -110,6 +111,7 @@ export const MailFormMini = ({coment}:IMainFormFull) => {
 		form.append("email",mail)
 		form.append("fio",name)
 		form.append("message",comt)
+		form.append("phone",phone ?? "")
 		form.append("approval","true")
 		form.append("useBot","true")
 		setShowAnswer(true)
