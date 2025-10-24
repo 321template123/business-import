@@ -71,7 +71,7 @@ export const MainFull = () => {
 			<h3 className="text-2xl md:text-3xl font-bold mb-4 drop-shadow-md mt-5 text-center md:text-end">
 				ИИ-консультант для поиска товар
 			</h3>
-			<button onClick={()=>setShowHelp(true)}>
+			<button className='text-blue-500 cursor-pointer p-2' onClick={()=>setShowHelp(true)}>
 				<QuestionMarkCircleIcon height={25}/>
 			</button>
 		</div>

@@ -1,5 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 interface IArticle{
@@ -117,6 +118,15 @@ export const ArticleFull = () => {
     };
   }, [fullscreenArticle]);
 
+	useEffect(() => {
+		const [block, article] = window.location.hash.split('/')
+		console.log(block,article)
+		if (block == "#articles" && article){
+			if(articles[Number(article)])
+				setFullscreenArticle(articles[Number(article)])
+		}
+  }, []);
+
 	return <>
 		<section id="articles" className="py-20 flex items-center bg-gray-100">
 			<div className="container mx-auto px-8">
@@ -181,13 +191,14 @@ interface IArticleFullScreenView {
 const ArticleFullScreenView = ({article,close}:IArticleFullScreenView) =>
 <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 md:p-8 z-50">
 	<div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
-		<button
+		<Link
+			href={"#articles"}
 			onClick={close}
 			className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-1 m-1 bg-white rounded-xl"
 			aria-label="Закрыть"
 		>
 			<XMarkIcon className="h-8 w-8" />
-		</button>
+		</Link>
 		<div className="relative w-full h-64 md:h-96">
 			<Image
 				src={article.image}

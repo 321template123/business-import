@@ -30,6 +30,7 @@ export const Header = () => {
 					<a href="#articles" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Полезные статьи</a>
 					<a href="#services" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Услуги</a>
 					<a href="#contact-form" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Связь</a>
+					<a href="#contacts" className="text-gray-600 hover:text-blue-500 font-semibold transition-colors">Контакты</a>
 				</div>
 
 				{/* Кнопка-гамбургер для мобильных устройств */}
@@ -49,6 +50,7 @@ export const Header = () => {
 				<a href="#main" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors border-b">Главная</a>
 				<a href="#about" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors border-b">О нас</a>
 				<a href="#articles" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors border-b">Полезные статьи</a>
+				<a href="#services" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors border-b">Услуги</a>
 				<a href="#contact-form" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors border-b">Связь</a>
 				<a href="#contacts" onClick={toggleMenu} className="block px-4 py-3 text-lg text-gray-700 hover:bg-gray-100 font-semibold transition-colors">Контакты</a>
 			</div>
