@@ -137,8 +137,10 @@ export const MailFormMini = ({coment,close}:IMainFormFull) => {
 
 	useEffect(() => {
 		const timer = setTimeout(()=>{
-			setShowAnswer(false)
-			close && close()
+			if (showAnswer) {
+				setShowAnswer(false)
+				close && close()
+			}
 		},3000)
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
