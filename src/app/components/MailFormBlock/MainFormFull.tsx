@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 
 export interface IMainFormFull{
 	coment?: string
+	close?: () => void
 }
 
 export const MainFormFull = () => {
@@ -13,7 +14,7 @@ export const MainFormFull = () => {
 	const [phone, setPhone] = useState<string>()
 	const [comt, setComt] = useState<string>()
 
-	const [showAnswer, setShowAnswer] = useState<boolean>(true)
+	const [showAnswer, setShowAnswer] = useState<boolean>(false)
 
 	const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -32,7 +33,14 @@ export const MainFormFull = () => {
 
 		axios.post(`/api/send-email`,form,{
 			headers: { 'Content-Type': 'application/json' }
-		}).then(()=>setShowAnswer(true))
+		})
+		.then(()=>{
+			setShowAnswer(true)
+			setName("")
+			setMail("")
+			setPhone("")
+			setComt("")
+		})
 	}
 
 	useEffect(() => {
@@ -91,14 +99,14 @@ export const MainFormFull = () => {
 	</section>
 }
 
-export const MailFormMini = ({coment}:IMainFormFull) => {
+export const MailFormMini = ({coment,close}:IMainFormFull) => {
 
 	const [name, setName] = useState<string>()
 	const [mail, setMail] = useState<string>()
 	const [phone, setPhone] = useState<string>()
 	const [comt, setComt] = useState<string>(coment ?? "")
 
-	const [showAnswer, setShowAnswer] = useState<boolean>(true)
+	const [showAnswer, setShowAnswer] = useState<boolean>(false)
 
 	const sendEmail = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault()
@@ -118,12 +126,20 @@ export const MailFormMini = ({coment}:IMainFormFull) => {
 
 		axios.post(`/api/send-email`,form,{
 			headers: { 'Content-Type': 'application/json' }
-		}).then(()=>setShowAnswer(true))
+		}).then(()=>{
+			setShowAnswer(true)
+			setName("")
+			setMail("")
+			setPhone("")
+			setComt("")
+		})
 	}
 
 	useEffect(() => {
 		const timer = setTimeout(()=>{
-			setShowAnswer(false)},5000)
+			setShowAnswer(false)
+			close && close()
+		},3000)
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
 
@@ -168,6 +184,7 @@ export const MailFormMini = ({coment}:IMainFormFull) => {
 		{showAnswer && <>
 			<h4 className='text-green-700 font-bold text-center'>Ваша заявка принята!</h4>
 			<h4 className='text-green-700 font-bold text-center'>Ожидайте ответа от консультанта</h4>
+			<h4 className='text-green-700 font-bold text-center'>Форма будет автоматически закрыта!</h4>
 		</>}
 	</form>
 }

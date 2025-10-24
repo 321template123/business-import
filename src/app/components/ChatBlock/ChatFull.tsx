@@ -407,7 +407,7 @@ const MailFormFull = ({coment,close}:IMailFormFull) =>
 					<XMarkIcon className="h-8 w-8" />
 				</button>
 				<div className="p-6 md:p-8">
-					<MailFormMini coment={coment} />
+					<MailFormMini close={close} coment={coment} />
 				</div>
 			</div>
 		</div>
