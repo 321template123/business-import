@@ -169,7 +169,13 @@ export const ChatFull = () => {
 			<button onClick={() => setShowMailForm(true)} className="w-full h-1/12 m-1 bg-gradient-to-r from-gray-500 to-indigo-600 text-white p-1 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex justify-center items-center space-x-2">Связаться с нами</button>
 		</div>
 		{showItem >= 0 && <ItemFullView item={items[showItem]} close={() => setShowItem(-1)} select={()=>toggleSelected(showItem)}/>}
-		{showMailForm && <MailFormFull close={() => setShowMailForm(false)} coment={prepareForm()}></MailFormFull>}
+		{showMailForm && <MailFormFull close={() => {
+			setShowMailForm(false)
+			setItems(items.map((item:IItem) => {
+				item.selected = false
+				return item
+			}))
+		}} coment={prepareForm()}></MailFormFull>}
 	</>
 }
 
