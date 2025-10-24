@@ -171,10 +171,6 @@ export const ChatFull = () => {
 		{showItem >= 0 && <ItemFullView item={items[showItem]} close={() => setShowItem(-1)} select={()=>toggleSelected(showItem)}/>}
 		{showMailForm && <MailFormFull close={() => {
 			setShowMailForm(false)
-			setItems(items.map((item:IItem) => {
-				item.selected = false
-				return item
-			}))
 		}} coment={prepareForm()}></MailFormFull>}
 	</>
 }
