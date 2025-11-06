@@ -2,10 +2,10 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 import React from 'react'
 import { createPortal } from 'react-dom'
 
-export const PrivacyPolicy = ({close}:{close:()=>void}) => 	
+export const PrivacyPolicy = ({}:{close:()=>void}) => 	
 	createPortal(
 	<div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center p-4 md:p-8 z-50">
-		{/* <div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
+		<div className="bg-white rounded-lg shadow-xl md:max-w-7/12 w-full max-h-full overflow-y-auto relative">
 			<button
 				onClick={close}
 				className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-50 p-2"
@@ -16,7 +16,7 @@ export const PrivacyPolicy = ({close}:{close:()=>void}) =>
 			<div className="p-6 md:p-8">
 				<h2 id="modal-title" className="text-2xl font-bold mb-4 w-10/12">Политика конфиденциальности</h2>
               
-				<div>
+				{/* <div>
 					<p> Настоящая Политика конфиденциальности персональных данных (далее – «Политика конфиденциальности») действует в отношении всей информации, которую компания ООО «Агентство Правильных Перевозок» (ИНН 7300030591) может получить о Пользователе во время использования им сайта, расположенного по адресу (на доменном имени): https://app73.pro, включая все уровни указанного домена и содержащиеся на них страницы (далее – «Сайт»), а также в ходе исполнения Администрацией сайта любых соглашений и договоров с Пользователем. </p>
 					<ol>
 						<li>
@@ -111,8 +111,8 @@ export const PrivacyPolicy = ({close}:{close:()=>void}) =>
 					<hr />
 					<br />
 					<div>от 06 ноября 2025 года</div>
-				</div>
+				</div> */}
 			</div>
-		</div> */}
+		</div> 
 	</div>
 	,document.body)
