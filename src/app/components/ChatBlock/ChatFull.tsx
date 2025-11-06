@@ -8,6 +8,7 @@ import { BounceLoader } from 'react-spinners'
 import { IMainFormFull, MailFormMini } from '../MailFormBlock/MainFormFull'
 
 interface IPrice{
+	approx_price_rub: string
 	min_quantity: string
 	original_price_cny: string
 	price_rub: string
@@ -15,6 +16,7 @@ interface IPrice{
 }
 
 interface IItem{
+	approx_price_rub: string
 	dimensions: {
 		height: string
 		length: string
@@ -228,12 +230,12 @@ const ItemFullView = ({item,close,select}:IItemFullView) =>
 						{/* Цены со всеми опциями */}
 						<div>
 							<h3 className="text-lg font-semibold mb-2">Ценообразование</h3>
+							{item.price_rub && <p className="text-lg font-bold text-blue-400">От {item.price_rub} ₽ ({item.approx_price_rub} с доставкой)</p>}
 							{item.quantity_prices && <>
-								{item.price_rub && <p className="text-lg font-bold text-blue-400">От {item.price_rub} ₽</p>}
 								<ul className="text-sm text-gray-700 space-y-1">
 									{item.quantity_prices.map((qp:IPrice, index:number) => (
 										<li key={index}>
-											{qp.min_quantity} шт.+: {qp.price_rub} ₽ за штуку
+											{qp.min_quantity} шт.+: {qp.price_rub} ₽ за штуку ({item.approx_price_rub} с доставкой)
 										</li>
 									))}
 								</ul>

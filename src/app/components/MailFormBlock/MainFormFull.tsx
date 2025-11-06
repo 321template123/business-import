@@ -1,6 +1,7 @@
 import { EnvelopeIcon, PaperAirplaneIcon, PhoneIcon, ShieldCheckIcon, UserIcon } from '@heroicons/react/24/solid'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { PrivacyPolicy } from '../PrivacyPolicy/PrivacyPolicy'
 
 export interface IMainFormFull{
 	coment?: string
@@ -8,6 +9,8 @@ export interface IMainFormFull{
 }
 
 export const MainFormFull = () => {
+
+	const [showPP, setShowPP] = useState<boolean>(false)
 
 	const [name, setName] = useState<string>()
 	const [mail, setMail] = useState<string>()
@@ -85,7 +88,7 @@ export const MainFormFull = () => {
 					/>
 					<label htmlFor="consent" className="flex-1 text-sm text-gray-700">
 						Я согласен на обработку персональных данных в соответствии с{' '}
-						<a href="/privacy-policy" className="text-blue-600 hover:underline">
+						<a onClick={()=>setShowPP(true)} className="text-blue-600 hover:underline">
 							Политикой конфиденциальности
 						</a>
 					</label>
@@ -94,12 +97,16 @@ export const MainFormFull = () => {
 					<h4 className='text-green-700 font-bold text-center'>Ваша заявка принята!</h4>
 					<h4 className='text-green-700 font-bold text-center'>Ожидайте ответа от консультанта</h4>
 				</>}
+
+				{showPP && <PrivacyPolicy close={()=>setShowPP(false)}></PrivacyPolicy>}
 			</form>
 		</div>
 	</section>
 }
 
 export const MailFormMini = ({coment,close}:IMainFormFull) => {
+
+	const [showPP, setShowPP] = useState<boolean>(false)
 
 	const [name, setName] = useState<string>()
 	const [mail, setMail] = useState<string>()
@@ -178,7 +185,7 @@ export const MailFormMini = ({coment,close}:IMainFormFull) => {
 			/>
 			<label htmlFor="consent" className="flex-1 text-sm text-gray-700">
 				Я согласен на обработку персональных данных в соответствии с{' '}
-				<a href="/privacy-policy" className="text-blue-600 hover:underline">
+				<a onClick={()=>setShowPP(true)} className="text-blue-600 hover:underline">
 					Политикой конфиденциальности
 				</a>
 			</label>
@@ -188,5 +195,6 @@ export const MailFormMini = ({coment,close}:IMainFormFull) => {
 			<h4 className='text-green-700 font-bold text-center'>Ожидайте ответа от консультанта</h4>
 			<h4 className='text-green-700 font-bold text-center'>Форма будет автоматически закрыта!</h4>
 		</>}
+		{showPP && <PrivacyPolicy close={()=>setShowPP(false)}></PrivacyPolicy>}
 	</form>
 }
