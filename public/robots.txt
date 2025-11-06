@@ -15,4 +15,6 @@ Allow: /#*
 Allow: /*#*
 
 # Указываем путь к sitemap
+User-agent: *
+Host: https://businessimport.ru
 Sitemap: https://businessimport.ru/sitemap.xml
