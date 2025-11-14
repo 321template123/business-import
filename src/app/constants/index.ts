@@ -42,8 +42,8 @@ export const SocialLinks:ISocialLink[] = [
 	{
 		name: "VK",
 		icon: "/assets/icon/vkontakte.png",
-		link: "https://vk.com/grishania99",
-		short: "grishania99"
+		link: "https://vkvideo.ru/@club233391815",
+		short: "БизнесИмпорт"
 	},
 	{
 		name: "Mail",
