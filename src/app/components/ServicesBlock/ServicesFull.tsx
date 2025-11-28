@@ -1,5 +1,6 @@
+import { useSmoothScroll } from '@/app/hooks/useSmoothScroll'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface IService{
 	title: string
@@ -7,6 +8,7 @@ interface IService{
 	steps: string[]
 	price: string
 	blur?: boolean
+	find?: boolean
 }
 
 const SERVICES:IService[] = [
@@ -132,15 +134,30 @@ const SERVICES:IService[] = [
 
 export const ServicesFull = () => {
 
+	const [findServices, setFindServices] = useState<number>(0)
 	const [toogleMore, setToogleMore] = useState<boolean>(false)
+
+	const scroller = useSmoothScroll()
+
+	useEffect(() => {
+		const [block, service] = window.location.hash.split('/')
+		if (block == "#services" && service){
+
+			if(SERVICES[Number(service)]){
+				setToogleMore(true)
+				setFindServices(Number(service))
+				scroller("services")
+			}
+		}
+	}, []);
 
 	return <section id="services" className="pt-20 min-h-screen flex items-center">
 		<div className="container mx-auto px-8">
-			<h2 className="text-4xl font-bold text-center text-indigo-900 mb-12">Услуги</h2>
+			<h1 className="text-4xl font-bold text-center text-indigo-900 mb-12">Услуги</h1>
 			<div className={`relative ${toogleMore? "":"h-[500px] xl:h-[600px] overflow-hidden"}`}>
 				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-2 p-1 md:mx-10 md:p-5'>
 					{SERVICES.map((item:IService,index:number) => {
-						return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2}/>
+						return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2} find={findServices == index+1}/>
 					})}
 				</div>
 			</div>
@@ -151,7 +168,7 @@ export const ServicesFull = () => {
 }
 
 const ServiceCard = (service:IService) => 
-	<div className={`bg-white border-4 border-blue-700/80 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden`}>
+	<div className={`${service.find?"bg-blue-300/30":"bg-white"} border-4 border-blue-700/80 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 cursor-pointer overflow-hidden`}>
 		<div className="p-6 flex flex-col justify-between min-h-[400px]">
 			<h3 className="text-xl font-bold text-indigo-900 mb-2 h-[10%]">{service.title}</h3>
 			<span className={`text-gray-600 ${service.blur?"blur-xs":""} h-[10%]`}>

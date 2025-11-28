@@ -24,15 +24,64 @@
 
 		<url>
         <loc>https://businessimport.ru/#articles/1</loc>
-        <lastmod>2024-01-10</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
         <priority>0.8</priority>
     </url>
 
 		<url>
         <loc>https://businessimport.ru/#articles/2</loc>
-        <lastmod>2024-01-10</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/3</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/4</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/5</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/6</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/7</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/8</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#articles/9</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
         <priority>0.8</priority>
     </url>
     

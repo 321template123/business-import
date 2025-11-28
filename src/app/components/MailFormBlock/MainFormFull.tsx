@@ -160,25 +160,25 @@ export const MailFormMini = ({coment,close}:IMainFormFull) => {
 		const timer = setTimeout(()=>{
 			if (showAnswer) {
 				setShowAnswer(false)
-				close && close()
+				if(close) close()
 			}
 		},3000)
 		return ()=>{clearTimeout(timer)}
 	},[showAnswer])
 
 	useEffect(() => {
-			// Отключаем или включаем прокрутку страницы в зависимости от состояния модального окна
-			if (showPP) {
-				document.body.style.overflow = 'hidden';
-			} else {
-				document.body.style.overflow = 'auto';
-			}
-	
-			// Очистка эффекта при размонтировании компонента
-			return () => {
-				document.body.style.overflow = 'auto';
-			};
-		}, [showPP]);
+		// Отключаем или включаем прокрутку страницы в зависимости от состояния модального окна
+		if (showPP) {
+			document.body.style.overflow = 'hidden';
+		} else {
+			document.body.style.overflow = 'auto';
+		}
+
+		// Очистка эффекта при размонтировании компонента
+		return () => {
+			document.body.style.overflow = 'auto';
+		};
+	}, [showPP]);
 
 	return <form className="max-w-lg mx-auto bg-white p-2 md:p-10 rounded-xl shadow-2xl space-y-6 w-full md:min-w-[600px]" onSubmit={sendEmail}>
 		<div className="flex items-center space-x-4 border-b border-gray-200 py-2">

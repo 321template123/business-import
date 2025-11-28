@@ -5,7 +5,7 @@ export const AboutFull = () => {
 	return <section id="about" className="relative py-20 bg-white min-h-screen flex items-center">
 		<div className="absolute inset-0 md:m-20">
 			<Image
-				src="/assets/about/about-1.png"
+				src="/assets/about/about-1.webp"
 				alt="Офис компании"
 				layout="fill"
 				objectFit="cover"
@@ -15,7 +15,7 @@ export const AboutFull = () => {
 			<div className="absolute inset-0 bg-gradient-to-r from-transparent to-[0%] md:to-[50%] to-gray-900 "></div>
 		</div>
 		<div className="relative container mx-auto p-8 text-white z-10">
-			<h2 className="text-4xl font-bold text-center mb-12">О нас</h2>
+			<h1 className="text-4xl font-bold text-center mb-12">О нас</h1>
 			<div className="flex flex-col md:items-end">
 				<div className="text-lg space-y-6 md:max-w-1/2 py-5 px-10 text-center md:text-justify">
 					<p>

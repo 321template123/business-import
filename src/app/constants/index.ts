@@ -35,25 +35,25 @@ export interface ISocialLink{
 export const SocialLinks:ISocialLink[] = [
 	{
 		name: "Telegram",
-		icon: "/assets/icon/telegram.png",
+		icon: "/assets/icon/telegram.webp",
 		link: "https://t.me/businessimport_official",
 		short: "t.me/businessimport_official"
 	},
 	{
 		name: "VK",
-		icon: "/assets/icon/vkontakte.png",
+		icon: "/assets/icon/vkontakte.webp",
 		link: "https://vkvideo.ru/@club233391815",
 		short: "БизнесИмпорт"
 	},
 	{
 		name: "Mail",
-		icon: "/assets/icon/mailru.png",
+		icon: "/assets/icon/mailru.webp",
 		link: "mailto:business-import@mail.ru",
 		short: "business-import@mail.ru"
 	},
 	{
 		name: "Phone",
-		icon: "/assets/icon/phone.png",
+		icon: "/assets/icon/phone.webp",
 		link: "tel:+79870004605",
 		short: "+79870004605"
 	},

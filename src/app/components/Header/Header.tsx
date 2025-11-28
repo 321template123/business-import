@@ -15,7 +15,7 @@ export const Header = () => {
 			<nav className="container mx-auto px-4 py-2 flex justify-between items-center">
 				<div className="text-3xl font-extrabold text-indigo-900">
 					<Image
-						src="/assets/logo/LogoMiddle.png"
+						src="/assets/logo/LogoMiddle.webp"
 						alt="Офис компании"
 						width={200}
 						height={100}

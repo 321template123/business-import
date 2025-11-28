@@ -5,7 +5,7 @@ import React from 'react'
 
 export const ContactFull = () => {
 	return <section id="contacts" className="container mx-auto p-8 py-20 bg-white text-center">
-		<h2 className="text-4xl font-bold text-indigo-900 mb-12">Наши контакты</h2>
+		<h1 className="text-4xl font-bold text-indigo-900 mb-12">Наши контакты</h1>
 		{/* <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
 			<p className="text-xl md:text-2xl text-gray-700 font-bold flex items-center space-x-2">
 				<PhoneIcon className="h-6 w-6 text-blue-500" />
