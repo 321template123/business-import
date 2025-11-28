@@ -134,7 +134,7 @@ const SERVICES:IService[] = [
 
 export const ServicesFull = () => {
 
-	const [findServices, setFindServices] = useState<number>(0)
+	const [findServices, setFindServices] = useState<number>(-1)
 	const [toogleMore, setToogleMore] = useState<boolean>(false)
 
 	const scroller = useSmoothScroll()
@@ -143,21 +143,30 @@ export const ServicesFull = () => {
 		const [block, service] = window.location.hash.split('/')
 		if (block == "#services" && service){
 
-			if(SERVICES[Number(service)]){
+			if(SERVICES[Number(service) - 1]){
 				setToogleMore(true)
-				setFindServices(Number(service))
-				scroller("services")
+				setFindServices(Number(service) - 1)
 			}
+			scroller("services")
 		}
 	}, []);
+
+	// useEffect(()=>{
+	// 	if(Number(findServices) == -1 && !toogleMore)
+	// 		return
+
+	// 	scroller("services")
+	// },[toogleMore,findServices])
 
 	return <section id="services" className="pt-20 min-h-screen flex items-center">
 		<div className="container mx-auto px-8">
 			<h1 className="text-4xl font-bold text-center text-indigo-900 mb-12">Услуги</h1>
 			<div className={`relative ${toogleMore? "":"h-[500px] xl:h-[600px] overflow-hidden"}`}>
 				<div className='grid md:grid-cols-2 xl:grid-cols-3 gap-10 mx-2 p-1 md:mx-10 md:p-5'>
+					{SERVICES[findServices] && <ServiceCard key={findServices} {...SERVICES[findServices]} blur={false} find={true}/>}
 					{SERVICES.map((item:IService,index:number) => {
-						return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2} find={findServices == index+1}/>
+						if(index != findServices)
+							return <ServiceCard key={index} {...item} blur={!toogleMore && index > 2} find={findServices == index}/>
 					})}
 				</div>
 			</div>

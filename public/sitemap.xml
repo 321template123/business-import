@@ -91,6 +91,90 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/1</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/2</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/3</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/4</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/5</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/6</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/7</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/8</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/9</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/10</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/11</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
+
+		<url>
+        <loc>https://businessimport.ru/#services/12</loc>
+        <lastmod>2025-01-10</lastmod>
+        <changefreq>yearly </changefreq>
+        <priority>0.8</priority>
+    </url>
 		
     <url>
         <loc>https://businessimport.ru/#contacts</loc>
